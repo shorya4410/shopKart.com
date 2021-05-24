@@ -1,0 +1,42 @@
+<body>
+
+    <div class="sidenav">
+        <ul>
+            <li><a (click)="sortByElectronics()">Shop by Electronics</a></li>
+            <li><a (click)="sortByClothing()">Shop by Clothing</a></li>
+            <li><a (click)="sortByEssentials()">Shop by Essential Services</a></li>
+            <li><a (click)="goToHome()">Home</a></li>
+        </ul>
+    </div>
+
+    <div [ngSwitch]="displayContent" class="main">
+        <div *ngSwitchCase="1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-4" *ngFor="let i of getProduct" >
+                        <div class="list">
+                            <img [src]=i.itemIMG style="height: 200px; width: 200px;"><br>
+                            <p ><b>Product Name :</b> {{i.itemName}}</p>
+                            <p><b>Product Price :</b> ₹{{i.itemPrice}}</p>
+                            <p *ngIf=i.itemStock>Product In Stock</p>
+                            <p *ngIf=!i.itemStock>Out of Stock</p>
+                            <button [disabled]=!i.itemStock class="btn btn-primary" (click)="AddToCart(i.itemId )">Add to Cart</button>
+                        </div>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div *ngSwitchCase="2">
+            <app-electronicslist></app-electronicslist>
+        </div>
+        <div *ngSwitchCase="3">
+            <app-clothinglist></app-clothinglist>
+        </div>
+        <div *ngSwitchCase="4">
+            <app-essentialslist></app-essentialslist>
+        </div>
+    </div>
+
+</body>

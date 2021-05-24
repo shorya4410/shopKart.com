@@ -1,0 +1,29 @@
+<body>
+    <nav>
+        <ul>
+            <li class="logo">shopKart.com</li>
+            <div class="items">
+                <li><a (click)="goToMyCart()">My Cart</a><p class="numbIcon">{{itemCartNo}}</p></li>
+                <li><a (click)="goToMyOrder()">My Orders</a></li>
+                <li><a (click)="goToMyHome()">Home</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+            </div>
+            
+        </ul>
+    </nav>
+       <div [ngSwitch]="value">
+            <div *ngSwitchCase="1">
+                <app-mycart></app-mycart>
+            </div>
+            <div *ngSwitchCase="2">
+                <app-myorders></app-myorders>
+            </div>
+            <div *ngSwitchCase="3">
+                <app-myhome></app-myhome>
+            </div>
+        </div> 
+
+    
+    
+    
+</body>

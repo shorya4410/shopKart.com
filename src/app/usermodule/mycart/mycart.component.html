@@ -1,0 +1,33 @@
+<body>
+    <div class="container text-center">
+        <table>
+            <thead>
+                <tr>
+                    <td><b>Product ID</b></td>&nbsp;&nbsp;&nbsp;
+                    <td><b>Product Image</b></td>&nbsp;&nbsp;&nbsp;
+                    <td><b>Product Name</b></td>&nbsp;&nbsp;&nbsp;
+                    <td><b>Product Price</b></td>&nbsp;&nbsp;&nbsp;
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor=" let i of getCart">
+                    <td>{{i.itemId}}</td>&nbsp;&nbsp;&nbsp;
+                    <td><img [src]=i.itemIMG style="height: 50px; width: 50px;"></td>&nbsp;&nbsp;&nbsp;
+                    <td>{{i.itemName}}</td>&nbsp;&nbsp;&nbsp;
+                    <td>{{i.itemPrice}}</td>&nbsp;&nbsp;&nbsp;
+                    <button type="submit" class="btn btn-secondary" (click)="removeProduct(i.itemId)">Remove Item from Cart</button>
+                    <br>
+                </tr>
+            </tbody>
+        </table>
+        <div class="row">
+            <div class="col-6 text-center">
+                <p><b>Total Price :</b> {{totalPrice}}</p>
+            </div>
+            <div class="col-6 text-center">
+                <button (click)="PayOrder()" class="btn btn-primary">Buy Now</button>
+            </div>
+        </div>
+        
+    </div>
+</body>

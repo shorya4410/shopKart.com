@@ -1,0 +1,32 @@
+nav{
+    background-color: rgb(67, 68, 70);
+    color: white;
+    padding: 10px 40px 10px 70px;
+    border: 5px solid;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+nav ul li.logo{
+    flex: 1;
+    font-size: 30px;
+    font-weight: 600;
+    cursor: not-allowed;
+}
+nav ul div.items{
+    display: inline-flex;
+    padding: 0 25px;
+}
+nav ul div.items a{
+    text-decoration: none;
+    font-size: 18px;
+    padding: 0 12px;
+}
+nav ul div.items a:hover{
+    color: cyan;
+    cursor: pointer;
+}

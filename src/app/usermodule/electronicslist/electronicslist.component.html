@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row">
+        <div class="col-3 text-center" >
+            <br><a (click)="priceLTH()" class="tags">Sort by Price Low to High</a>
+        </div>
+        <div class="col-3 text-center">
+            <br><a (click)="priceHTL()" class="tags">Sort by Price High to Low</a>
+        </div>
+        <div class="col-3 text-center">
+            <br><a (click)="seeElect()" class="tags">Show All Electronics</a>
+        </div>
+    </div><hr>
+    <div [ngSwitch]="display">
+        <div class="row" *ngSwitchCase = "1">
+            <div class="col-3" *ngFor="let i of getElectLTH" id="list">
+                <img [src]=i.itemIMG style="height: 100px; width: 100px;"><br>
+                <p><b>Product Name : </b>{{i.itemName}}</p>
+                <p><b>Product Price : </b>₹{{i.itemPrice}}</p>
+                <p *ngIf=i.itemStock>Product In Stock</p>
+                <p *ngIf=!i.itemStock>Out of Stock</p>
+                <button [disabled]=!i.itemStock class="btn btn-primary" (click)="AddToCart(i.itemId )">Add to Cart</button>
+            </div>
+        </div>
+        <div class="row" *ngSwitchCase = "2">
+            <div class="col-3" *ngFor="let i of getElectHTL" id="list">
+                <img [src]=i.itemIMG style="height: 100px; width: 100px;"><br>
+                <p><b>Product Name : </b>{{i.itemName}}</p>
+                <p><b>Product Price : </b>₹{{i.itemPrice}}</p>
+                <p *ngIf=i.itemStock>Product In Stock</p>
+                <p *ngIf=!i.itemStock>Out of Stock</p>
+                <button [disabled]=!i.itemStock class="btn btn-primary" (click)="AddToCart(i.itemId )">Add to Cart</button>
+            </div>
+        </div>
+        <div class="row" *ngSwitchCase = "3">
+            <div class="col-3" *ngFor="let i of getElect" id="list">
+                <img [src]=i.itemIMG style="height: 100px; width: 100px;"><br>
+                <p><b>Product Name : </b>{{i.itemName}}</p>
+                <p><b>Product Price : </b>₹{{i.itemPrice}}</p>
+                <p *ngIf=i.itemStock>Product In Stock</p>
+                <p *ngIf=!i.itemStock>Out of Stock</p>
+                <button [disabled]=!i.itemStock class="btn btn-primary" (click)="AddToCart(i.itemId )">Add to Cart</button>
+            </div>
+        </div>
+    </div>    
+</div>

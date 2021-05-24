@@ -1,0 +1,36 @@
+<div class="container text-center">
+    <div class="A">
+        <form [formGroup]="addProduct" (ngSubmit)="addThisProduct()">
+            <div>
+                <label >Choose item type :</label>
+                <select formControlName="itemType">
+                    <option value="Clothing">Clothing</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Essentials">Essentials</option>
+                </select>
+            </div>
+            <div>
+                <input type="number" placeholder="Item ID" formControlName="itemId">
+            </div>
+            <div>
+                <input type="text" placeholder="Item Name" formControlName="itemName">
+            </div>
+            <div>
+                <input type="number" placeholder="Item Price" formControlName="itemPrice">
+            </div>
+            <div>
+                <input type="number" placeholder="Item Stock" formControlName="itemStock">
+            </div>
+            <div>
+                <input type="text" placeholder="Item Color" formControlName="itemColor">
+            </div>
+            <div>
+                <label>Product Picture</label>
+                <input type="file" formControlName="itemIMG" (change)="preview($event)"><br>
+                <img [src]="imgURL" style="width: 100px; height: 100px;">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+</div>

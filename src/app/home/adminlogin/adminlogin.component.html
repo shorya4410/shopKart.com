@@ -1,0 +1,22 @@
+<nav>
+    <ul>
+        <li class="logo">shopKart.com</li>
+        <div class="items">
+            <li><a (click)="goToUserLogin()">Login as User</a></li>
+        </div>
+    </ul>
+</nav><br><br><br>
+<div class="container">
+    <div class="row  text-center">
+        <div class="col-12">
+            <form [formGroup]="loginAdmin" (ngSubmit)="loginAdminfunc()">
+                <label>Enter Admin UserName</label><br>
+                <input type="text" placeholder="Admin UserName" formControlName="AdminUserName"><br><br>
+                <label>Enter Password</label><br>
+                <input type="password" placeholder="Password" formControlName="AdminPassword"><br><br>
+                <button type="submit" class="btn btn-primary">Login</button><br>
+                <p *ngIf="showError">Please enter correct credentials</p>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+<nav>
+    <ul>
+        <li class="logo">shopKart.com</li>
+        <div class="items">
+            <li><a (click)="AddProducts()">Add Products</a></li>
+            <li><a (click)="SeeUsers()">See Users</a></li>
+            <li><a (click)="goToHome()">Home</a></li>
+            <li><a (click)="logoutAdmin()">Logout</a></li>
+        </div>
+    </ul>
+</nav>
+<div [ngSwitch]="showToAdmin">
+    <div *ngSwitchCase="1">
+        <app-addproducts></app-addproducts>
+    </div>
+    <div *ngSwitchCase="2">
+        <app-seeusers></app-seeusers>
+    </div>
+    <div *ngSwitchCase="3">
+        <app-adminhome></app-adminhome>
+    </div>
+</div>
